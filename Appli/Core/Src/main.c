@@ -154,7 +154,6 @@ int main(void)
 #else
   AppMain();
 #endif /*USE_RTOS*/
-  AirQuality_RoutineTask_Startup();
   /* USER CODE END 2 */
 
   /* Init scheduler */

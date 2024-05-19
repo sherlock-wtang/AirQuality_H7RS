@@ -80,7 +80,7 @@ void Temperature_RoutineTask_Body(void)
 *******************************/
 void Temperature_RoutineTask_Startup(void)
 {
-    xTaskCreate((void *)Temperature_RoutineTask_Body, "Temperature", STANDARD_TASK_STACK, NULL, osPriorityAboveNormal, taskH_Temperature);
+    xTaskCreate((void *)Temperature_RoutineTask_Body, "Temperature", STANDARD_TASK_STACK, NULL, osPriorityLow, taskH_Temperature);
     return;
 }
 
