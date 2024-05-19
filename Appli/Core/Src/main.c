@@ -140,16 +140,21 @@ int main(void)
   MX_I2C1_Init();
   MX_I2S6_Init();
   MX_LTDC_Init();
-  MX_SDMMC1_SD_Init();
+//  MX_SDMMC1_SD_Init();
   MX_SPI4_Init();
   MX_UART4_Init();
   MX_UCPD1_Init();
-  MX_USB_OTG_FS_PCD_Init();
-  MX_USB_OTG_HS_PCD_Init();
+//  MX_USB_OTG_FS_PCD_Init();
+//  MX_USB_OTG_HS_PCD_Init();
   MX_UART7_Init();
   MX_CRC_Init();
   /* USER CODE BEGIN 2 */
+#if (RTOS_ACTIVE)
+  AppMain_RTOS_Startup();
+#else
   AppMain();
+#endif /*USE_RTOS*/
+  AirQuality_RoutineTask_Startup();
   /* USER CODE END 2 */
 
   /* Init scheduler */
