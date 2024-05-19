@@ -1,0 +1,12 @@
+{
+    "files.associations": {
+        ".fantomasignore": "ignore",
+        "main.h": "c",
+        "cmsis_os2.h": "c",
+        "freertos.h": "c",
+        "common.h": "c",
+        "task.h": "c",
+        "__drivermain.h": "c",
+        "temperature.h": "c"
+    }
+}
