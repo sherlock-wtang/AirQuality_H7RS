@@ -20,6 +20,7 @@
 #include "main.h"
 #include "FreeRTOS.h"
 #include "cmsis_os2.h"
+#include "fatfs.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -140,7 +141,7 @@ int main(void)
   MX_I2C1_Init();
   MX_I2S6_Init();
   MX_LTDC_Init();
-//  MX_SDMMC1_SD_Init();
+  MX_SDMMC1_SD_Init();
   MX_SPI4_Init();
   MX_UART4_Init();
   MX_UCPD1_Init();
@@ -148,6 +149,7 @@ int main(void)
 //  MX_USB_OTG_HS_PCD_Init();
   MX_UART7_Init();
   MX_CRC_Init();
+  MX_FATFS_Init();
   /* USER CODE BEGIN 2 */
 #if (RTOS_ACTIVE)
   AppMain_RTOS_Startup();
@@ -642,10 +644,6 @@ static void MX_SDMMC1_SD_Init(void)
   hsd1.Init.BusWide = SDMMC_BUS_WIDE_4B;
   hsd1.Init.HardwareFlowControl = SDMMC_HARDWARE_FLOW_CONTROL_DISABLE;
   hsd1.Init.ClockDiv = 0;
-  if (HAL_SD_Init(&hsd1) != HAL_OK)
-  {
-    Error_Handler();
-  }
   /* USER CODE BEGIN SDMMC1_Init 2 */
 
   /* USER CODE END SDMMC1_Init 2 */

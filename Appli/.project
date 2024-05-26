@@ -253,6 +253,31 @@
 			<locationURI>PARENT-1-PROJECT_LOC/Drivers/STM32H7RSxx_HAL_Driver/Src/stm32h7rsxx_ll_utils.c</locationURI>
 		</link>
 		<link>
+			<name>Middlewares/Third_Party/FatFs/diskio.c</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/Middlewares/Third_Party/FatFs/source/diskio.c</locationURI>
+		</link>
+		<link>
+			<name>Middlewares/Third_Party/FatFs/ff.c</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/Middlewares/Third_Party/FatFs/source/ff.c</locationURI>
+		</link>
+		<link>
+			<name>Middlewares/Third_Party/FatFs/ff_gen_drv.c</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/Middlewares/Third_Party/FatFs/source/ff_gen_drv.c</locationURI>
+		</link>
+		<link>
+			<name>Middlewares/Third_Party/FatFs/ffunicode.c</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/Middlewares/Third_Party/FatFs/source/ffunicode.c</locationURI>
+		</link>
+		<link>
+			<name>Middlewares/Third_Party/FatFs/sd_diskio.c</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/Middlewares/Third_Party/FatFs/source/drivers/sd/sd_diskio.c</locationURI>
+		</link>
+		<link>
 			<name>Middlewares/Third_Party/FreeRTOS/cmsis_os2.c</name>
 			<type>1</type>
 			<locationURI>PARENT-1-PROJECT_LOC/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.c</locationURI>
