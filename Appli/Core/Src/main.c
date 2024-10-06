@@ -20,7 +20,6 @@
 #include "main.h"
 #include "FreeRTOS.h"
 #include "cmsis_os2.h"
-#include "fatfs.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -145,11 +144,10 @@ int main(void)
   MX_SPI4_Init();
   MX_UART4_Init();
   MX_UCPD1_Init();
-//  MX_USB_OTG_FS_PCD_Init();
-//  MX_USB_OTG_HS_PCD_Init();
+  MX_USB_OTG_FS_PCD_Init();
+  MX_USB_OTG_HS_PCD_Init();
   MX_UART7_Init();
   MX_CRC_Init();
-  MX_FATFS_Init();
   /* USER CODE BEGIN 2 */
 #if (RTOS_ACTIVE)
   AppMain_RTOS_Startup();
@@ -428,6 +426,9 @@ static void MX_FLASH_Init(void)
   /* USER CODE BEGIN FLASH_Init 1 */
 
   /* USER CODE END FLASH_Init 1 */
+  HAL_FLASHEx_OBGetConfig(&pOBInit);
+  if ((pOBInit.USERConfig2 & OB_I2C_NI3C_I2C) != OB_I2C_NI3C_I2C)
+  {
   if (HAL_FLASH_Unlock() != HAL_OK)
   {
     Error_Handler();
@@ -450,6 +451,7 @@ static void MX_FLASH_Init(void)
   if (HAL_FLASH_Lock() != HAL_OK)
   {
     Error_Handler();
+  }
   }
   /* USER CODE BEGIN FLASH_Init 2 */
 
@@ -644,6 +646,10 @@ static void MX_SDMMC1_SD_Init(void)
   hsd1.Init.BusWide = SDMMC_BUS_WIDE_4B;
   hsd1.Init.HardwareFlowControl = SDMMC_HARDWARE_FLOW_CONTROL_DISABLE;
   hsd1.Init.ClockDiv = 0;
+  if (HAL_SD_Init(&hsd1) != HAL_OK)
+  {
+    Error_Handler();
+  }
   /* USER CODE BEGIN SDMMC1_Init 2 */
 
   /* USER CODE END SDMMC1_Init 2 */
@@ -1001,7 +1007,7 @@ void StartDefaultTask(void *argument)
   * @note   This function is called  when TIM1 interrupt took place, inside
   * HAL_TIM_IRQHandler(). It makes a direct call to HAL_IncTick() to increment
   * a global variable "uwTick" used as application time base.
-  * @param  htim : TIM handle
+  * @param  htim TIM handle
   * @retval None
   */
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
